@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import birdLogo from "../assets/white-origami-bird.png";
-import LinkItem from "../components/linkItem/LinkItem";
+import blueLogo from "../../assets/blue-origami-bird-flipped.png";
+import whiteLogo from "../../assets/white-origami-bird.png";
+import LinkItem from "./LinkItem";
 
-const Navbar = () => {
+const LinkItems = ({ logo }) => {
   const [linkItems, setLinkItems] = useState([
     {
       id: 1,
@@ -60,24 +61,15 @@ const Navbar = () => {
       url: "#",
     },
   ]);
-
   return (
-    <nav
-      className="Navigation"
-      style={{
-        position: "fixed",
-      }}
-    >
-      <ul>
-        <li className="listItem">
-          <img alt="" src={birdLogo} />
-        </li>
-        {linkItems.map((item) => (
-          <LinkItem key={item.id} title={item.title} url={item.url} />
-        ))}
-      </ul>
-    </nav>
+    <ul>
+      {logo === "navbar" && <img src={whiteLogo} alt="" />}
+      {linkItems.map((item) => (
+        <LinkItem key={item.id} title={item.title} url={item.url} />
+      ))}
+      {logo === "footer" && <img src={blueLogo} alt="" />}
+    </ul>
   );
 };
 
-export default Navbar;
+export default LinkItems;
