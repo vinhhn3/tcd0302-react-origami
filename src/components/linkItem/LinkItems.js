@@ -18,12 +18,12 @@ const LinkItems = ({ logo }) => {
           url: "/share",
         },
         {
-          id: 4,
+          id: 2,
           title: "Profile",
           url: "/profile",
         },
         {
-          id: 5,
+          id: 3,
           title: "Main Page",
           url: "/",
         },
@@ -31,17 +31,17 @@ const LinkItems = ({ logo }) => {
     } else {
       setLinkItems([
         {
-          id: 2,
+          id: 1,
           title: "Register",
           url: "/register",
         },
         {
-          id: 3,
+          id: 2,
           title: "Login",
           url: "/login",
         },
         {
-          id: 4,
+          id: 3,
           title: "Main page",
           url: "/",
         },
