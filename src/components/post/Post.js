@@ -1,5 +1,5 @@
 import React from "react";
-import birdLogo from "../../assets/white-origami-bird.png";
+import birdLogo from "../../assets/blue-origami-bird.png";
 const Post = ({ description, author }) => {
   return (
     <div className="Post">
