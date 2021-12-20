@@ -3,6 +3,7 @@ import "./App.css";
 import Aside from "./components/layout/Aside";
 import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
+import Login from "./pages/Login";
 import Main from "./pages/Main";
 import Register from "./pages/Register";
 import Share from "./pages/Share";
@@ -19,6 +20,7 @@ function App() {
               <Route exact path={"/"} component={Main} />
               <Route exact path={"/share"} component={Share} />
               <Route exact path={"/register"} component={Register} />
+              <Route exact path={"/login"} component={Login} />
             </Switch>
           </div>
         </div>
