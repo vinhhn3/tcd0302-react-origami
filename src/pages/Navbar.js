@@ -76,7 +76,6 @@ const Navbar = () => {
           <LinkItem key={item.id} title={item.title} url={item.url} />
         ))}
       </ul>
-      <h1>This is Navbar</h1>
     </nav>
   );
 };
