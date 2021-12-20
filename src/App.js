@@ -5,6 +5,7 @@ import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
 import Login from "./pages/Login";
 import Main from "./pages/Main";
+import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 import Share from "./pages/Share";
 
@@ -21,6 +22,7 @@ function App() {
               <Route exact path={"/share"} component={Share} />
               <Route exact path={"/register"} component={Register} />
               <Route exact path={"/login"} component={Login} />
+              <Route exact path={"/profile"} component={Profile} />
             </Switch>
           </div>
         </div>
