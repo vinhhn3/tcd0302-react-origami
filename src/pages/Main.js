@@ -1,15 +1,11 @@
 import React from "react";
-import Aside from "../components/layout/Aside";
 import Posts from "../components/post/Posts";
 
 const Main = () => {
   return (
-    <div className="Container">
-      <Aside />
-      <div className="Main">
-        <h1>Publications</h1>
-        <Posts />
-      </div>
+    <div className="Main">
+      <h1>Publications</h1>
+      <Posts />
     </div>
   );
 };

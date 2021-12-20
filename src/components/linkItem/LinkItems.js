@@ -7,8 +7,8 @@ const LinkItems = ({ logo }) => {
   const [linkItems, setLinkItems] = useState([
     {
       id: 1,
-      title: "Post",
-      url: "#",
+      title: "Share",
+      url: "/share",
     },
     {
       id: 2,
@@ -27,8 +27,8 @@ const LinkItems = ({ logo }) => {
     },
     {
       id: 5,
-      title: "###",
-      url: "#",
+      title: "Main Page",
+      url: "/",
     },
     {
       id: 6,
