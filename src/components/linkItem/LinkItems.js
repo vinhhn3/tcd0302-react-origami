@@ -18,16 +18,6 @@ const LinkItems = ({ logo }) => {
           url: "/share",
         },
         {
-          id: 2,
-          title: "Register",
-          url: "/register",
-        },
-        {
-          id: 3,
-          title: "Login",
-          url: "/login",
-        },
-        {
           id: 4,
           title: "Profile",
           url: "/profile",
@@ -36,36 +26,6 @@ const LinkItems = ({ logo }) => {
           id: 5,
           title: "Main Page",
           url: "/",
-        },
-        {
-          id: 6,
-          title: "###",
-          url: "#",
-        },
-        {
-          id: 7,
-          title: "###",
-          url: "#",
-        },
-        {
-          id: 8,
-          title: "###",
-          url: "#",
-        },
-        {
-          id: 9,
-          title: "###",
-          url: "#",
-        },
-        {
-          id: 10,
-          title: "###",
-          url: "#",
-        },
-        {
-          id: 11,
-          title: "###",
-          url: "#",
         },
       ]);
     } else {

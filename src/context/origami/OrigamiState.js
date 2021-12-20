@@ -4,7 +4,7 @@ import OrigamiReducer from "./origamiReducer";
 
 const OrigamiState = (props) => {
   const initialState = {
-    isLoggedIn: false,
+    isLoggedIn: true,
   };
 
   const [state, dispatch] = useReducer(OrigamiReducer, initialState);

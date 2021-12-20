@@ -18,8 +18,12 @@ const Home = () => {
         <Route exact path={"/share"}>
           {!isLoggedIn ? <Redirect to="/login" /> : <Share />}
         </Route>
-        <Route exact path={"/register"} component={Register} />
-        <Route exact path={"/login"} component={Login} />
+        <Route exact path={"/register"}>
+          {isLoggedIn ? <Redirect to="/" /> : <Register />}
+        </Route>
+        <Route exact path={"/login"}>
+          {isLoggedIn ? <Redirect to="/" /> : <Login />}
+        </Route>
         <Route exact path={"/profile"}>
           {!isLoggedIn ? <Redirect to="/login" /> : <Profile />}
         </Route>
