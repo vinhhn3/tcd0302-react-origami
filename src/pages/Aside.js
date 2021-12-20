@@ -62,7 +62,7 @@ const Aside = () => {
   return (
     <aside className="Aside">
       {linkItems.map((item) => (
-        <LinkItem key={item.key} title={item.title} url={item.url} />
+        <LinkItem key={item.id} title={item.title} url={item.url} />
       ))}
     </aside>
   );
