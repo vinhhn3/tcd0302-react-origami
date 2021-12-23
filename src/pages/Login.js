@@ -44,7 +44,7 @@ const Login = () => {
           />
         </div>
         <div className="form-control">
-          <button type="submit" onSubmit={onLogin}>
+          <button type="submit" onClick={onLogin}>
             Login
           </button>
         </div>
