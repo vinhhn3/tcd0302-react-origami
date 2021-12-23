@@ -26,7 +26,7 @@ const Profile = () => {
       <button onClick={logout}>Logout</button>
       <div>
         <h2>3 recent posts</h2>
-        {privatePosts.length !== 0 && <PrivatePosts posts={privatePosts} />}
+        <PrivatePosts />
       </div>
     </div>
   );

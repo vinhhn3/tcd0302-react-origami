@@ -60,14 +60,30 @@ const OrigamiState = (props) => {
   };
 
   const getPrivatePosts = async () => {
-    var response = await axios.get("http://localhost:9999/api/origami/mine", {
-      withCredentials: true,
-    });
+    var response = await axios.get(
+      "http://localhost:9999/api/origami/mine?limit=3",
+      {
+        withCredentials: true,
+      }
+    );
     if (response.status === 200) {
       dispatch({
         type: GET_PRIVATE_POSTS,
         payload: response.data,
       });
+    }
+  };
+
+  const createPost = async (text) => {
+    var response = await axios.post(
+      "http://localhost:9999/api/origami",
+      { description: text },
+      {
+        withCredentials: true,
+      }
+    );
+    if (response.status === 200) {
+      getPrivatePosts();
     }
   };
 
@@ -77,7 +93,6 @@ const OrigamiState = (props) => {
       {},
       { withCredentials: true }
     );
-
     if (response.status === 200) {
       dispatch({
         type: USER_LOGOUT,
@@ -95,6 +110,7 @@ const OrigamiState = (props) => {
         loginUser,
         registerUser,
         logoutUser,
+        createPost,
       }}
     >
       {props.children}
