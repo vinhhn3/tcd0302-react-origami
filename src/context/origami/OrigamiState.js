@@ -1,6 +1,11 @@
 import axios from "axios";
 import { useReducer } from "react";
-import { GET_PRIVATE_POSTS, USER_LOGIN, USER_LOGOUT } from "../types";
+import {
+  GET_ALL_POSTS,
+  GET_PRIVATE_POSTS,
+  USER_LOGIN,
+  USER_LOGOUT,
+} from "../types";
 import OrigamiContext from "./origamiContext";
 import OrigamiReducer from "./origamiReducer";
 
@@ -26,6 +31,7 @@ const OrigamiState = (props) => {
     ],
     username: "",
     privatePosts: [],
+    allPosts: [],
   };
 
   const [state, dispatch] = useReducer(OrigamiReducer, initialState);
@@ -74,6 +80,14 @@ const OrigamiState = (props) => {
     }
   };
 
+  const getAllPosts = async () => {
+    var response = await axios.get("http://localhost:9999/api/origami/all");
+    dispatch({
+      type: GET_ALL_POSTS,
+      payload: response.data,
+    });
+  };
+
   const createPost = async (text) => {
     var response = await axios.post(
       "http://localhost:9999/api/origami",
@@ -107,10 +121,12 @@ const OrigamiState = (props) => {
         linkItems: state.linkItems,
         username: state.username,
         privatePosts: state.privatePosts,
+        allPosts: state.allPosts,
         loginUser,
         registerUser,
         logoutUser,
         createPost,
+        getAllPosts,
       }}
     >
       {props.children}

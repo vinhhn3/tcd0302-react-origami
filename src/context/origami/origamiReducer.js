@@ -1,4 +1,9 @@
-import { GET_PRIVATE_POSTS, USER_LOGIN, USER_LOGOUT } from "../types";
+import {
+  GET_ALL_POSTS,
+  GET_PRIVATE_POSTS,
+  USER_LOGIN,
+  USER_LOGOUT,
+} from "../types";
 
 /* eslint-disable import/no-anonymous-default-export */
 export default (state, action) => {
@@ -52,6 +57,11 @@ export default (state, action) => {
       return {
         ...state,
         privatePosts: action.payload,
+      };
+    case GET_ALL_POSTS:
+      return {
+        ...state,
+        allPosts: action.payload,
       };
     default:
       return state;
