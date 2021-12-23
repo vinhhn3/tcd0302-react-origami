@@ -41,12 +41,26 @@ const OrigamiState = (props) => {
     }
   };
 
+  const registerUser = async (register) => {
+    var response = await axios.post(
+      "http://localhost:9999/api/user/register",
+      register,
+      { withCredentials: true }
+    );
+    if (response.status === 200) {
+      dispatch({
+        type: USER_LOGIN,
+      });
+    }
+  };
+
   return (
     <OrigamiContext.Provider
       value={{
         isLoggedIn: state.isLoggedIn,
         linkItems: state.linkItems,
         loginUser,
+        registerUser,
       }}
     >
       {props.children}
