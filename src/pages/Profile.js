@@ -14,6 +14,7 @@ const Profile = () => {
           <span>Posts: </span>9
         </p>
       </div>
+      <button>Logout</button>
       <div>
         <h2>3 recent posts</h2>
         <Posts />
