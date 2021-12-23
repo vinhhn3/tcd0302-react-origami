@@ -47,7 +47,7 @@ const LinkItems = ({ logo }) => {
         },
       ]);
     }
-  });
+  }, []);
   return (
     <ul>
       {logo === "navbar" && <img src={whiteLogo} alt="" />}

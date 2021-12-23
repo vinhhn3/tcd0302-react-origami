@@ -15,7 +15,6 @@ const Home = () => {
   return (
     <div className="Container">
       <Aside />
-      <div className="Main">
         <Switch>
           <Route exact path={"/"} component={Main} />
           <Route exact path={"/share"}>
@@ -32,7 +31,6 @@ const Home = () => {
           </Route>
           <Route path={""} component={NotFound} />
         </Switch>
-      </div>
     </div>
   );
 };
