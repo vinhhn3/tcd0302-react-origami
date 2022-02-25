@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useEffect, useReducer, useState } from "react";
+import API from "../../api";
 import {
   GET_ALL_POSTS,
   GET_PRIVATE_POSTS,
@@ -43,11 +43,9 @@ const OrigamiState = (props) => {
   }, [state]);
 
   const loginUser = async (login) => {
-    var response = await axios.post(
-      "http://localhost:9999/api/user/login",
-      login,
-      { withCredentials: true }
-    );
+    var response = await API.post("/user/login", login, {
+      withCredentials: true,
+    });
     getPrivatePosts();
     console.log(response);
     if (response.status === 200) {
@@ -59,11 +57,9 @@ const OrigamiState = (props) => {
   };
 
   const registerUser = async (register) => {
-    var response = await axios.post(
-      "http://localhost:9999/api/user/register",
-      register,
-      { withCredentials: true }
-    );
+    var response = await API.post("/user/register", register, {
+      withCredentials: true,
+    });
     if (response.status === 200) {
       dispatch({
         type: USER_LOGIN,
@@ -72,12 +68,9 @@ const OrigamiState = (props) => {
   };
 
   const getPrivatePosts = async () => {
-    var response = await axios.get(
-      "http://localhost:9999/api/origami/mine?limit=3",
-      {
-        withCredentials: true,
-      }
-    );
+    var response = await API.get("/origami/mine?limit=3", {
+      withCredentials: true,
+    });
     if (response.status === 200) {
       dispatch({
         type: GET_PRIVATE_POSTS,
@@ -87,7 +80,7 @@ const OrigamiState = (props) => {
   };
 
   const getAllPosts = async () => {
-    var response = await axios.get("http://localhost:9999/api/origami/all");
+    var response = await API.get("/origami/all");
     dispatch({
       type: GET_ALL_POSTS,
       payload: response.data,
@@ -95,8 +88,8 @@ const OrigamiState = (props) => {
   };
 
   const createPost = async (text) => {
-    var response = await axios.post(
-      "http://localhost:9999/api/origami",
+    var response = await API.post(
+      "/origami",
       { description: text },
       {
         withCredentials: true,
@@ -108,8 +101,8 @@ const OrigamiState = (props) => {
   };
 
   const logoutUser = async () => {
-    var response = await axios.post(
-      "http://localhost:9999/api/user/logout",
+    var response = await API.post(
+      "/user/logout",
       {},
       { withCredentials: true }
     );
