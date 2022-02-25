@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import {
   GET_ALL_POSTS,
   GET_PRIVATE_POSTS,
@@ -10,7 +10,7 @@ import OrigamiContext from "./origamiContext";
 import OrigamiReducer from "./origamiReducer";
 
 const OrigamiState = (props) => {
-  const initialState = {
+  const [initialState, setInitialState] = useState({
     isLoggedIn: false,
     linkItems: [
       {
@@ -32,9 +32,15 @@ const OrigamiState = (props) => {
     username: "",
     privatePosts: [],
     allPosts: [],
-  };
+  });
 
-  const [state, dispatch] = useReducer(OrigamiReducer, initialState);
+  const [state, dispatch] = useReducer(OrigamiReducer, initialState, () => {
+    const localData = localStorage.getItem("localData");
+    return localData ? JSON.parse(localData) : initialState;
+  });
+  useEffect(() => {
+    localStorage.setItem("localData", JSON.stringify(state));
+  }, [state]);
 
   const loginUser = async (login) => {
     var response = await axios.post(
@@ -127,6 +133,7 @@ const OrigamiState = (props) => {
         logoutUser,
         createPost,
         getAllPosts,
+        dispatch,
       }}
     >
       {props.children}
