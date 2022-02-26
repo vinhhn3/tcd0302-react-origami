@@ -6,9 +6,7 @@ const Posts = () => {
   const origamiContext = useContext(OrigamiContext);
   const { allPosts, getAllPosts } = origamiContext;
   useEffect(() => {
-    async function getData() {
-      await getAllPosts();
-    }
+    getAllPosts();
   }, []);
   return (
     <div className="Posts">
