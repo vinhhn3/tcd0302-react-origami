@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer } from "react";
 import API from "../../api";
 import {
   GET_ALL_POSTS,
@@ -10,7 +10,7 @@ import OrigamiContext from "./origamiContext";
 import OrigamiReducer from "./origamiReducer";
 
 const OrigamiState = (props) => {
-  const [initialState, setInitialState] = useState({
+  const initialState = {
     isLoggedIn: false,
     linkItems: [
       {
@@ -32,7 +32,7 @@ const OrigamiState = (props) => {
     username: "",
     privatePosts: [],
     allPosts: [],
-  });
+  };
 
   const [state, dispatch] = useReducer(OrigamiReducer, initialState, () => {
     const localData = localStorage.getItem("localData");

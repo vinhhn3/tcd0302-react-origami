@@ -5,8 +5,10 @@ import Post from "./Post";
 const Posts = () => {
   const origamiContext = useContext(OrigamiContext);
   const { allPosts, getAllPosts } = origamiContext;
-  useEffect(async () => {
-    getAllPosts();
+  useEffect(() => {
+    async function getData() {
+      await getAllPosts();
+    }
   }, []);
   return (
     <div className="Posts">
