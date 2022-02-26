@@ -46,9 +46,8 @@ const OrigamiState = (props) => {
     var response = await API.post("/user/login", login, {
       withCredentials: true,
     });
-    getPrivatePosts();
-    console.log(response);
     if (response.status === 200) {
+      getPrivatePosts();
       dispatch({
         type: USER_LOGIN,
         payload: response.data,
@@ -61,8 +60,10 @@ const OrigamiState = (props) => {
       withCredentials: true,
     });
     if (response.status === 200) {
+      getPrivatePosts();
       dispatch({
         type: USER_LOGIN,
+        payload: response.data,
       });
     }
   };
@@ -126,7 +127,6 @@ const OrigamiState = (props) => {
         logoutUser,
         createPost,
         getAllPosts,
-        dispatch,
       }}
     >
       {props.children}
